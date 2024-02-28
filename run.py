@@ -43,7 +43,7 @@ def get_target_location():
         print ('Enter a Valid Row')
         row = input ('Enter a row number to target 1-8')
     column = input ('Enter a column letter to target A-J').upper()
-     while column not in 'ABCDEFGHIJ':
+    while column not in 'ABCDEFGHIJ':
         print ('Enter a Valid Column')
         row = input ('Enter a column letter to target A-J').upper()
     return int(row) - 1, letters_to_numbers[column]
@@ -59,8 +59,13 @@ def strike_success():
 display if strike was successful
 """
 
-def sunk_ships():
-    pass
+def sunk_ships(board):
+    count = 0 
+    for row in board:
+        for column in row:
+           if column == 'X':
+            count += 1
+    return count 
 
 """
 Shows how many ships have been sunk
