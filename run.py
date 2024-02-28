@@ -2,6 +2,8 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
+from random import randint
+
 RED_BOARD = [[' '] * 10 for x in range(11)]
 BLUE_BOARD = [[' '] * 10 for x in range(11)]
 
@@ -24,15 +26,28 @@ def show_board(board):
 Function to show board. Letter headings displayed for colmuns and number rows. The rows and columns are separated by pipe symbols
 """
 
-def create_ships():
-    pass
+def create_ships(board):
+    for ship in range(6):
+        ship_row, ship_column = randint(0,9), randint(0,9)
+        while board[ship_row][ship_column]=='X':
+            ship_row, ship_column = randint(0,9), randint(0,9)
+        board[ship_row][ship_column] = 'X'
 
 """
-Set loaction of ships
+Set loaction of ships. NB There is a bug in this section, wrap in try except otherwise it wont work with no input
 """
 
 def get_target_location():
-    pass
+    row = input ('Enter a row number to target 1-8')
+    while row not in '12345678910':
+        print ('Enter a Valid Row')
+        row = input ('Enter a row number to target 1-8')
+    column = input ('Enter a column letter to target A-J').upper()
+     while column not in 'ABCDEFGHIJ':
+        print ('Enter a Valid Column')
+        row = input ('Enter a column letter to target A-J').upper()
+    return int(row) - 1, letters_to_numbers[column]
+
 """
 function to ask player for the target
 """
