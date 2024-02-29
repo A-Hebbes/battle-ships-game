@@ -45,7 +45,7 @@ def get_target_location():
     column = input ('Enter a column letter to target A-J').upper()
     while column not in 'ABCDEFGHIJ':
         print ('Enter a Valid Column')
-        row = input ('Enter a column letter to target A-J').upper()
+        column = input ('Enter a column letter to target A-J').upper()
     return int(row) - 1, letters_to_numbers[column]
 
 """
@@ -71,5 +71,7 @@ def sunk_ships(board):
 Shows how many ships have been sunk
 """
 
-create_ships()
+create_ships(RED_BOARD)
 turns = 15 
+show_board(RED_BOARD)
+show_board(BLUE_BOARD)
