@@ -15,11 +15,11 @@ BLUE BOARD FOR PLAYER
 letters_to_numbers = {'a' : 0, 'b' : 1, 'c' : 2, 'd' : 3, 'e' : 4, 'f' : 5, 'g' : 6, 'h' : 7, 'i' : 8, 'j' : 9}
 
 def show_board(board):
-    print ('A B C D E F G H I J')
-    print ('-------------------')
+    print ('    A B C D E F G H I J')
+    print ('    -------------------')
     row_number = 1
     for row in board: 
-        print("%d|%s|" % (row_number, "|".join(row)))
+        print("%2d|%s|" % (row_number, "|".join(row)))
         row_number += 1
 
 """
