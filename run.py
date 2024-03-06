@@ -73,5 +73,25 @@ Shows how many ships have been sunk
 
 create_ships(RED_BOARD)
 turns = 15 
-show_board(RED_BOARD)
-show_board(BLUE_BOARD)
+while turns > 0:
+    print('Prepare for Battleships')
+    show_board(BLUE_BOARD)
+    row, column = get_target_location()
+    if BLUE_BOARD[row][column] == '-':
+        print('Select another target location. You already aimed there')
+    elif RED_BOARD[row][column] == 'X':
+        print ('Congratulations You Sunk a Battleship')
+        BLUE_BOARD[row][column] == 'X':
+        turns -= 1
+    else: 
+        print('You missed! :0')
+        RED_BOARD[row][column] = '-'
+        turns -= 1
+    if sunk_ships (RED_BOARD) == 10:
+        print("Congratulations You Sunk All Of Your Opponent's Battleships")
+        break
+    print('You have ' + str(turns) + ' turns remaining')
+    if turns == 0:
+        print('Game Over')
+        break
+
