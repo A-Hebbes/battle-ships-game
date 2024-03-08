@@ -12,7 +12,7 @@ RED GAME BOARD FOR COMPUTER
 BLUE BOARD FOR PLAYER
 """
 
-letters_to_numbers = {'a' : 0, 'b' : 1, 'c' : 2, 'd' : 3, 'e' : 4, 'f' : 5, 'g' : 6, 'h' : 7, 'i' : 8, 'j' : 9}
+letters_to_numbers = {'A' : 0, 'B' : 1, 'C' : 2, 'D' : 3, 'E' : 4, 'F' : 5, 'G' : 6, 'H' : 7, 'I' : 8, 'J' : 9}
 
 def show_board(board):
     print ('   A B C D E F G H I J')
@@ -41,7 +41,7 @@ def get_target_location():
     row = input ('Enter a row number to target 1-8')
     while row not in '12345678910':
         print ('Enter a Valid Row')
-        row = input ('Enter a row number to target 1-8')
+        row = input ('Enter a row number to target 1-11')
     column = input ('Enter a column letter to target A-J').upper()
     while column not in 'ABCDEFGHIJ':
         print ('Enter a Valid Column')
@@ -72,6 +72,7 @@ Shows how many ships have been sunk
 """
 
 create_ships(RED_BOARD)
+show_board(RED_BOARD)
 turns = 15 
 while turns > 0:
     print('Prepare for Battleships')
@@ -81,17 +82,17 @@ while turns > 0:
         print('Select another target location. You already aimed there')
     elif RED_BOARD[row][column] == 'X':
         print ('Congratulations You Sunk a Battleship')
-        BLUE_BOARD[row][column] == 'X':
+        BLUE_BOARD[row][column] = 'X'
         turns -= 1
     else: 
-        print('You missed! :0')
-        RED_BOARD[row][column] = '-'
+        print('You missed! :(')
+        BLUE_BOARD[row][column] = '-'
         turns -= 1
-    if sunk_ships (RED_BOARD) == 10:
+    if sunk_ships(RED_BOARD) == 6:
         print("Congratulations You Sunk All Of Your Opponent's Battleships")
         break
     print('You have ' + str(turns) + ' turns remaining')
     if turns == 0:
-        print('Game Over')
+        print('You Have No More Turns - Game Over')
         break
 
