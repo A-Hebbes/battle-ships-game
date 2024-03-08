@@ -88,7 +88,7 @@ while turns > 0:
         print('You missed! :(')
         BLUE_BOARD[row][column] = '-'
         turns -= 1
-    if sunk_ships(RED_BOARD) == 6:
+    if sunk_ships(BLUE_BOARD) == 6:
         print("Congratulations You Sunk All Of Your Opponent's Battleships")
         break
     print('You have ' + str(turns) + ' turns remaining')
