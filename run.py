@@ -38,7 +38,7 @@ Set loaction of ships. NB There is a bug in this section, wrap in try except oth
 """
 
 def get_target_location():
-    row = input ('Enter a row number to target 1-8')
+    row = input ('Enter a row number to target 1-11')
     while row not in '1234567891011':
         print ('Enter a Valid Row')
         row = input ('Enter a row number to target 1-11')
