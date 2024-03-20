@@ -4,21 +4,30 @@
 
 from random import randint
 
+letters_to_numbers = {'A' : 0, 'B' : 1, 'C' : 2, 'D' : 3, 'E' : 4, 'F' : 5, 'G' : 6, 'H' : 7, 'I' : 8, 'J' : 9}
+
 #Function to allow user to change size of board.
 def choose_board_size(): 
     print("Choose Board Size:")
-    return True
-test= choose_board_size()
-print("Function Running")
-    
+    print("1. Small 5x5")
+    print("2. Medium 8x8")
+    print("3. Large 10x10")
+    choice = input ("Enter choice (1-3): ")
+    if choice == '1':
+        return 5 
+    elif choice == '2':
+        return 8
+    elif choice == '3':
+        return 10
+    else: 
+        print ("Your Choice Wasn't Valid. Defauting to a large board.")
+        return 10 
+
 
 #Global Variable for the opponent's hidden board
-RED_BOARD = [[' '] * 10 for x in range(10)]
+#RED_BOARD = [[' '] * 10 for x in range(10)]
 #Global variable for the user's visible board to track their guesses
-BLUE_BOARD = [[' '] * 10 for x in range(10)]
-
-
-letters_to_numbers = {'A' : 0, 'B' : 1, 'C' : 2, 'D' : 3, 'E' : 4, 'F' : 5, 'G' : 6, 'H' : 7, 'I' : 8, 'J' : 9}
+#BLUE_BOARD = [[' '] * 10 for x in range(10)]
 
 def show_board(board):
     print ('   A B C D E F G H I J')
@@ -73,11 +82,17 @@ def sunk_ships(board):
             count += 1
     return count 
 
-"""
-Shows how many ships have been sunk
-"""
+board_size = choose_board_size()
 
+#create boards
+RED_BOARD = [[' '] * board_size for _ in range(board_size)]
+BLUE_BOARD = [[' '] * board_size for _ in range(board_size)]
+
+#Set ships on opponent board 
 create_ships(RED_BOARD)
+
+#Game loop 
+
 turns = 15 
 while turns > 0:
     print('Prepare for Battleships')
@@ -100,4 +115,5 @@ while turns > 0:
     if turns == 0:
         print('You Have No More Turns - Game Over')
         break
+
 
