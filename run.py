@@ -5,9 +5,9 @@
 from random import randint
 
 #Global Variable for the opponent's hidden board
-RED_BOARD = [[' '] * 10 for x in range(11)]
+RED_BOARD = [[' '] * 10 for x in range(10)]
 #Global variable for the user's visible board to track their guesses
-BLUE_BOARD = [[' '] * 10 for x in range(11)]
+BLUE_BOARD = [[' '] * 10 for x in range(10)]
 
 
 letters_to_numbers = {'A' : 0, 'B' : 1, 'C' : 2, 'D' : 3, 'E' : 4, 'F' : 5, 'G' : 6, 'H' : 7, 'I' : 8, 'J' : 9}
