@@ -6,6 +6,11 @@ from random import randint
 
 #Function to allow user to change size of board.
 def choose_board_size(): 
+    print("Choose Board Size:")
+    return True
+test= choose_board_size()
+print("Function Running")
+    
 
 #Global Variable for the opponent's hidden board
 RED_BOARD = [[' '] * 10 for x in range(10)]
