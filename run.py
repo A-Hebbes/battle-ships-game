@@ -29,10 +29,21 @@ def choose_board_size():
 #Global variable for the user's visible board to track their guesses
 #BLUE_BOARD = [[' '] * 10 for x in range(10)]
 
-def show_board(board):
-    print ('   A B C D E F G H I J')
-    print ('   -------------------')
+def show_board(board, board_size):
     row_number = 1
+    if board_size == 10:
+        print ('   A B C D E F G H I J')
+        print ('   -------------------')
+    elif board_size == 8:
+        print ('   A B C D E F G H')
+        print ('   ---------------')
+    else:
+        print ('   A B C D E')
+        print ('   ---------')
+
+   
+   # row_number = 1 was after code but have put before to see if it works. 
+
     for row in board: 
         print("%2d|%s|" % (row_number, "|".join(row)))
         row_number += 1
