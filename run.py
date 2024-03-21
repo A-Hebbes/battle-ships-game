@@ -41,11 +41,11 @@ def show_board(board):
 Function to show board. Letter headings displayed for colmuns and number rows. The rows and columns are separated by pipe symbols
 """
 
-def create_ships(board):
+def create_ships(board, board_size):
     for ship in range(6):
-        ship_row, ship_column = randint(0,9), randint(0,9)
-        while board[ship_row][ship_column]=='X':
-            ship_row, ship_column = randint(0,9), randint(0,9)
+        ship_row, ship_column = randint(0, board_size - 1), randint(0, board_size - 1)
+        while board[ship_row][ship_column] == 'X':
+            ship_row, ship_column = randint(0, board_size - 1), randint(0, board_size - 1)
         board[ship_row][ship_column] = 'X'
 
 """
@@ -88,8 +88,8 @@ board_size = choose_board_size()
 RED_BOARD = [[' '] * board_size for _ in range(board_size)]
 BLUE_BOARD = [[' '] * board_size for _ in range(board_size)]
 
-#Set ships on opponent board 
-create_ships(RED_BOARD)
+# Set ships on opponent board 
+create_ships(RED_BOARD, board_size)
 
 #Game loop 
 
