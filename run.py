@@ -107,7 +107,7 @@ create_ships(RED_BOARD, board_size)
 turns = 15 
 while turns > 0:
     print('Prepare for Battleships')
-    show_board(BLUE_BOARD)
+    show_board(BLUE_BOARD, board_size)
     row, column = get_target_location()
     if BLUE_BOARD[row][column] == '-':
         print('Select another target location. You already aimed there')
