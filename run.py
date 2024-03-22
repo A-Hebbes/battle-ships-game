@@ -20,8 +20,8 @@ def choose_board_size():
     elif choice == '3':
         return 10
     else: 
-        print ("Your Choice Wasn't Valid. Defauting to a large board.")
-        return 10 
+        print ("Your Choice Wasn't Valid. Defauting to a small board.")
+        return 5 
 
 
 #Global Variable for the opponent's hidden board
@@ -60,11 +60,34 @@ def create_ships(board, board_size):
         board[ship_row][ship_column] = 'X'
 
 """
+EDITED FUNCTION TO TARGET ON VARIED SIZED BOARDS
+
+"""
+
+def get_target_location(board_size):
+    row = input(f'Enter a row number to target (1-{board_size}): ')
+    while not row.isdigit() or not 1 <= int(row) <= board_size:
+        print('Enter a valid row number')
+        row = input(f'Enter a row number to target (1-{board_size}): ')
+    column = input(f'Enter a column letter to target (A-{chr(ord("A") + board_size - 1)}): ').upper()
+    while len(column) != 1 or column < 'A' or column > chr(ord("A") + board_size - 1):
+        print('Enter a valid column letter')
+        column = input(f'Enter a column letter to target (A-{chr(ord("A") + board_size - 1)}): ').upper()
+
+    return int(row) - 1, letters_to_numbers[column]
+
+
+
+
+"""
 Set loaction of ships. NB There is a bug in this section, wrap in try except otherwise it wont work with no input
 """
 
+"""
+
+INITIAL FUNCTION FOR TARGETTING SHIPS --> LIMITED TO ONE BOARD SIZE. 
 def get_target_location():
-    row = input ('Enter a row number to target 1-10')
+    row = input ('Enter a row number to target: ')
     while row not in '12345678910':
         print ('Enter a Valid Row')
         row = input ('Enter a row number to target 1-10')
@@ -74,7 +97,9 @@ def get_target_location():
         column = input ('Enter a column letter to target A-J').upper()
     return int(row) - 1, letters_to_numbers[column]
 
-"""
+
+-----
+
 function to ask player for the target
 """
 
@@ -108,7 +133,7 @@ turns = 15
 while turns > 0:
     print('Prepare for Battleships')
     show_board(BLUE_BOARD, board_size)
-    row, column = get_target_location()
+    row, column = get_target_location(board_size)
     if BLUE_BOARD[row][column] == '-':
         print('Select another target location. You already aimed there')
     elif RED_BOARD[row][column] == 'X':
