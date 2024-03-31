@@ -2,6 +2,19 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
+#https://www.youtube.com/watch?v=tF1WRCrd_HQ Used this video for guidance
+
+"""
+Issues to sort. 
+- The differntiation between sunk ships and hits is not working. The message displays that a ship is sunk, even when the 
+  ship has been hit and not sunk. Need to fix this. 
+- There is still an issue with ship numbers and the small board. Only appears to be two ships each time. Make the opponent board 
+  visible to test and see what can be done to fix it.
+- Add the response for invalid choice if player doesnt select 1 or 2 in the difficulty selection
+
+
+"""
+
 from random import randint
 
 letters_to_numbers = {'A' : 0, 'B' : 1, 'C' : 2, 'D' : 3, 'E' : 4, 'F' : 5, 'G' : 6, 'H' : 7, 'I' : 8, 'J' : 9}
@@ -219,8 +232,8 @@ create_ships(RED_BOARD, board_size, ship_sizes_for_game)
 
 #Game loop 
 
-turns = 15 
-
+turns = 30 
+prev_sunk_ships = 0
 while turns > 0:
     print('Prepare for Battleships')
     show_board(BLUE_BOARD, board_size)
@@ -231,11 +244,15 @@ while turns > 0:
         print ('Congratulations You hit a battleship')
         BLUE_BOARD[row][column] = 'X'
         turns -= 1
-        if sunk_ships(BLUE_BOARD) == 6:
+        #checking to see if the hit managed to sink a ship
+        current_sunk_ships = sunk_ships(BLUE_BOARD)
+        sunk_this_turn = current_sunk_ships > prev_sunk_ships
+        if sunk_this_turn:
+            print("Congratulations. You sunk a battleship!")
+            prev_sunk_ships = current_sunk_ships 
+        if current_sunk_ships == 6:
             print("Congratulations You Sunk All Of Your Opponent's Battleships")
-            break
-        elif sunk_ships(BLUE_BOARD) > sunk_ships(BLUE_BOARD) - 1:
-            print("Congratulations! You sunk an opponent's ship")
+            break     
     else: 
         print('You missed! :(')
         BLUE_BOARD[row][column] = '-'
