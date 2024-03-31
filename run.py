@@ -29,6 +29,8 @@ def choose_board_size():
         print ("Your Choice Wasn't Valid. Defauting to a small board.")
         return 5 
 
+#Function for difficulty selection 
+def choose_difficulty():
 
 #Global Variable for the opponent's hidden board
 #RED_BOARD = [[' '] * 10 for x in range(10)]
