@@ -31,6 +31,17 @@ def choose_board_size():
 
 #Function for difficulty selection 
 def choose_difficulty():
+    print("Select Difficulty:")
+    print("1. Easy (Ships occupy more squares)")
+    print("2. Hard (Ships occupy one square each)")
+    choice = input("Enter choice (1-2): ")
+    if choice == '1':
+        return 'easy'
+    elif choice == '2':
+        return 'hard'
+    else:
+        print("Invalid choice. Defaulting to Easy.")
+        return 'easy'
 
 #Global Variable for the opponent's hidden board
 #RED_BOARD = [[' '] * 10 for x in range(10)]
@@ -60,7 +71,7 @@ def show_board(board, board_size):
 Function to show board. Letter headings displayed for colmuns and number rows. The rows and columns are separated by pipe symbols
 """
 
-def create_ships(board, board_size):
+def create_ships(board, board_size, ship_sizes):
     for ship in range(6):
         ship_row, ship_column = randint(0, board_size - 1), randint(0, board_size - 1)
         while board[ship_row][ship_column] == 'X':
@@ -127,6 +138,8 @@ def sunk_ships(board):
     return count 
 
 board_size = choose_board_size()
+
+difficulty = choose_difficulty()
 
 #create boards
 RED_BOARD = [[' '] * board_size for _ in range(board_size)]
