@@ -6,6 +6,12 @@ from random import randint
 
 letters_to_numbers = {'A' : 0, 'B' : 1, 'C' : 2, 'D' : 3, 'E' : 4, 'F' : 5, 'G' : 6, 'H' : 7, 'I' : 8, 'J' : 9}
 
+#Difficulty Level. Needs to be a variable accessible throughtout game so has to come early on in code. Check and see if this works later.
+ship_sizes = {
+    'easy': [3, 3, 2, 2, 1, 1],  
+    'hard': [1, 1, 1, 1, 1, 1] 
+}
+
 #Function to allow user to change size of board.
 def choose_board_size(): 
     print("Choose Board Size:")
