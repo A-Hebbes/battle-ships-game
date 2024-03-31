@@ -220,6 +220,7 @@ create_ships(RED_BOARD, board_size, ship_sizes_for_game)
 #Game loop 
 
 turns = 15 
+
 while turns > 0:
     print('Prepare for Battleships')
     show_board(BLUE_BOARD, board_size)
@@ -230,13 +231,15 @@ while turns > 0:
         print ('Congratulations You hit a battleship')
         BLUE_BOARD[row][column] = 'X'
         turns -= 1
+        if sunk_ships(BLUE_BOARD) == 6:
+            print("Congratulations You Sunk All Of Your Opponent's Battleships")
+            break
+        elif sunk_ships(BLUE_BOARD) > sunk_ships(BLUE_BOARD) - 1:
+            print("Congratulations! You sunk an opponent's ship")
     else: 
         print('You missed! :(')
         BLUE_BOARD[row][column] = '-'
         turns -= 1
-    if sunk_ships(BLUE_BOARD) == 6:
-        print("Congratulations You Sunk All Of Your Opponent's Battleships")
-        break
     print('You have ' + str(turns) + ' turns remaining')
     if turns == 0:
         print('You Have No More Turns - Game Over')
