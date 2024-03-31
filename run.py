@@ -29,7 +29,7 @@ def choose_board_size():
         print ("Your Choice Wasn't Valid. Defauting to a small board.")
         return 5 
 
-#Function for difficulty selection 
+#Function for difficulty selection !! ADD RESPONSE FOR INVALID CHOICE!!
 def choose_difficulty():
     print("Select Difficulty:")
     print("1. Easy (Ships occupy more squares)")
@@ -42,6 +42,7 @@ def choose_difficulty():
     else:
         print("Invalid choice. Defaulting to Easy.")
         return 'easy'
+
 
 #Global Variable for the opponent's hidden board
 #RED_BOARD = [[' '] * 10 for x in range(10)]
@@ -71,12 +72,77 @@ def show_board(board, board_size):
 Function to show board. Letter headings displayed for colmuns and number rows. The rows and columns are separated by pipe symbols
 """
 
+from random import randint, choice
+
+def can_place_ship(board, row, col, ship_size, direction):
+    if direction == 'horizontal':
+        if col + ship_size > len(board[0]):
+            return False
+        for i in range(ship_size):
+            if board[row][col + i] == 'X':
+                return False
+    else:  # direction == 'vertical'
+        if row + ship_size > len(board):
+            return False
+        for i in range(ship_size):
+            if board[row + i][col] == 'X':
+                return False
+    return True
+
+def place_ship(board, row, col, ship_size, direction):
+    if direction == 'horizontal':
+        for i in range(ship_size):
+            board[row][col + i] = 'X'
+    else:  # direction == 'vertical'
+        for i in range(ship_size):
+            board[row + i][col] = 'X'
+
 def create_ships(board, board_size, ship_sizes):
+    for ship_size in ship_sizes:
+        placed = False
+        while not placed:
+            row = randint(0, board_size - 1)
+            col = randint(0, board_size - 1)
+            direction = choice(['horizontal', 'vertical'])
+            if can_place_ship(board, row, col, ship_size, direction):
+                place_ship(board, row, col, ship_size, direction)
+                placed = True
+
+"""
+
+def create_ships(board, board_size, ship_sizes):
+    for ship_size in ship_sizes:
+        placed = False
+        while not placed: 
+            vertical = randint(0,1) == 0 
+            if vertical: 
+                row = randint(0, board_size, - ship_size)
+                col = randint(0, board_size - 1)
+                empty = all(board[row + i][col] == ' ' for i in range(ship_size))
+                if empty: 
+                    for i in range(ship_size):
+                        board[row + i][col] = 'X'
+                    placed = True
+            else:  
+                row = randint(0, board_size - 1)
+                col = randint(0, board_size - ship_size)
+                empty = all(board[row][col + i] == ' ' for i in range(ship_size))
+                if empty:
+                    for i in range(ship_size):
+                        board[row][col + i] = 'X'
+                    placed = True
+
+"""
+
+"""
+Code from previous function to set ships on the board. Keep in case new code doesn't work. Delete before I submit if it works!!
     for ship in range(6):
         ship_row, ship_column = randint(0, board_size - 1), randint(0, board_size - 1)
         while board[ship_row][ship_column] == 'X':
             ship_row, ship_column = randint(0, board_size - 1), randint(0, board_size - 1)
         board[ship_row][ship_column] = 'X'
+
+"""
 
 """
 EDITED FUNCTION TO TARGET ON VARIED SIZED BOARDS
@@ -141,12 +207,15 @@ board_size = choose_board_size()
 
 difficulty = choose_difficulty()
 
+ship_sizes_for_game = ship_sizes[difficulty]
+
+
 #create boards
 RED_BOARD = [[' '] * board_size for _ in range(board_size)]
 BLUE_BOARD = [[' '] * board_size for _ in range(board_size)]
 
 # Set ships on opponent board 
-create_ships(RED_BOARD, board_size)
+create_ships(RED_BOARD, board_size, ship_sizes_for_game)
 
 #Game loop 
 
