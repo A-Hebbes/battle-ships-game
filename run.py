@@ -227,7 +227,7 @@ while turns > 0:
     if BLUE_BOARD[row][column] == '-':
         print('Select another target location. You already aimed there')
     elif RED_BOARD[row][column] == 'X':
-        print ('Congratulations You Sunk a Battleship')
+        print ('Congratulations You hit a battleship')
         BLUE_BOARD[row][column] = 'X'
         turns -= 1
     else: 
