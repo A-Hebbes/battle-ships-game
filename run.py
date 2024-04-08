@@ -6,8 +6,7 @@
 
 """
 Issues to sort. 
-- The differntiation between sunk ships and hits is not working. The message displays that a ship is sunk, even when the 
-  ship has been hit and not sunk. Need to fix this. 
+- End game is not working. Have tried putting in a function to check game over, but doesn't seem to work at all. Try again next time. 
 - There is still an issue with ship numbers and the small board. Only appears to be two ships each time. Make the opponent board 
   visible to test and see what can be done to fix it.
 - Add the response for invalid choice if player doesnt select 1 or 2 in the difficulty selection
@@ -174,7 +173,20 @@ def get_target_location(board_size):
 
     return int(row) - 1, letters_to_numbers[column]
 
-
+def check_game_over(red_board, blue_board):
+    for row_index in range(len(red_board)):
+        for col_index in range(len(red_board[row_index])):
+            if red_board[row_index][col_index] == 'X' and blue_board[row_index][col_index] != 'X':
+                # There's a ship on RED_BOARD that hasn't been hit on BLUE_BOARD
+                print(f"Red ship at {row_index}, {col_index} hasn't been sunk yet!")
+                return False
+            elif red_board[row_index][col_index] != 'X' and blue_board[row_index][col_index] == 'X':
+                # There's a ship on BLUE_BOARD that hasn't been hit on RED_BOARD (shouldn't happen in a valid game)
+                print(f"Blue ship at {row_index}, {col_index} hasn't been hit yet!")
+                return False
+    print("All ships have been sunk!")
+    # If all 'X' marks on RED_BOARD match those on BLUE_BOARD, the game is over
+    return True
 
 
 """
@@ -233,11 +245,10 @@ create_ships(RED_BOARD, board_size, ship_sizes_for_game)
 #Game loop 
 
 turns = 30 
-prev_sunk_ships = 0
 while turns > 0:
     print('Prepare for Battleships')
+    #change back to BLUE_BOARD AFTER TESTING GAME
     show_board(RED_BOARD, board_size)
-    #show_board(RED_BOARD, board_size, "OPPONENT BOARD FOR TESTING")
     row, column = get_target_location(board_size)
     if BLUE_BOARD[row][column] == '-':
         print('Select another target location. You already aimed there')
@@ -245,15 +256,9 @@ while turns > 0:
         print ('Congratulations You hit a battleship')
         BLUE_BOARD[row][column] = 'X'
         turns -= 1
-        #checking to see if the hit managed to sink a ship
-        current_sunk_ships = sunk_ships(BLUE_BOARD)
-        sunk_this_turn = current_sunk_ships > prev_sunk_ships
-        if sunk_this_turn:
-            print("Congratulations. You sunk a battleship!")
-            prev_sunk_ships = current_sunk_ships 
-        if current_sunk_ships == 6:
-            print("Congratulations You Sunk All Of Your Opponent's Battleships")
-            break     
+    if check_game_over(RED_BOARD, BLUE_BOARD):
+        print("Congratulations! You've sunk all of your opponent's battleships!")
+        break
     else: 
         print('You missed! :(')
         BLUE_BOARD[row][column] = '-'
