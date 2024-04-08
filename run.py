@@ -236,7 +236,8 @@ turns = 30
 prev_sunk_ships = 0
 while turns > 0:
     print('Prepare for Battleships')
-    show_board(BLUE_BOARD, board_size)
+    show_board(RED_BOARD, board_size)
+    #show_board(RED_BOARD, board_size, "OPPONENT BOARD FOR TESTING")
     row, column = get_target_location(board_size)
     if BLUE_BOARD[row][column] == '-':
         print('Select another target location. You already aimed there')
