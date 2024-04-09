@@ -6,10 +6,10 @@
 
 """
 Issues to sort. 
-- End game is not working. Have tried putting in a function to check game over, but doesn't seem to work at all. Try again next time. 
-- There is still an issue with ship numbers and the small board. Only appears to be two ships each time. Make the opponent board 
-  visible to test and see what can be done to fix it.
-- Add the response for invalid choice if player doesnt select 1 or 2 in the difficulty selection
+
+- Add sonar function? 
+- Add Rules and Guidance option at game start. 
+- Add space between text responses to make the game easier to use. 
 
 
 """
@@ -41,7 +41,7 @@ def choose_board_size():
         print ("Your Choice Wasn't Valid. Defauting to a small board.")
         return 5 
 
-#Function for difficulty selection !! ADD RESPONSE FOR INVALID CHOICE!!
+#Function for difficulty selection 
 def choose_difficulty():
     print("Select Difficulty:")
     print("1. Easy (Ships occupy more squares)")
@@ -227,6 +227,22 @@ BLUE_BOARD = [[' '] * board_size for _ in range(board_size)]
 # Set ships on opponent board 
 create_ships(RED_BOARD, board_size, ship_sizes_for_game)
 
+#FUnction for sonar 
+
+def sonar(board, row, col, board_size):
+    sonar_range = 2
+    start_row = max(0, row - sonar_range)
+    end_row = min(board_size - 1, row + sonar_range)
+    start_col = max(0, col - sonar_range)
+    end_col = min(board_size - 1, col + sonar_range)
+    print("Sonar Results:")
+    for r in range(start_row, end_row + 1):
+        for c in range(start_col, end_col + 1):
+            if board[r][c] == 'X':
+                print(f"Ship detected at {r + 1}, {chr(c + 65)}")  
+            else:
+                print(f"No ship detected at {r + 1}, {chr(c + 65)}")  
+
 #Check if the game is over
 
 def check_game_over(red_board, blue_board):
@@ -247,6 +263,7 @@ while turns > 0:
     elif RED_BOARD[row][column] == 'X':
         print ('Congratulations You hit a battleship')
         BLUE_BOARD[row][column] = 'X'
+        sonar(RED_BOARD, row, column, board_size)
         turns -= 1
         if check_game_over(RED_BOARD, BLUE_BOARD):
             print("Congratulations! You've sunk all of your opponent's battleships!")
