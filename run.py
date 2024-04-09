@@ -7,8 +7,6 @@
 """
 Issues to sort. 
 
-- Add sonar function? 
-- Add Rules and Guidance option at game start. 
 - Add space between text responses to make the game easier to use. 
 
 
@@ -243,6 +241,32 @@ def sonar(board, row, col, board_size):
             else:
                 print(f"No ship detected at {r + 1}, {chr(c + 65)}")  
 
+#Ask user if they want to see the rules 
+def start_game():
+    while True:
+        show_rules = input("Do you want to see the rules? (Y/N): ").upper()
+        if show_rules == 'Y':
+            display_rules()
+            break
+        elif show_rules == 'N':
+            print("Let's get started!\n")
+            break
+        else:
+            print("Invalid input. Please enter Y or N.")
+
+#Function for Game Rules 
+def display_rules():
+    print("Welcome to Battleships!")
+    print("Rules:")
+    print("- You will be playing against the computer.")
+    print("- Your goal is to sink all of your opponent's battleships.")
+    print("- You will choose a location on the opponent's board to target.")
+    print("- If your shot hits a battleship, it will be marked with 'X'.")
+    print("- If your shot misses, it will be marked with '-'.")
+    print("- If you make a successful hit, you will activate a sonar to scan adjacent squares")
+    print("- The game ends when you sink all of your opponent's battleships or run out of turns.")
+    print("\nLet's get started!\n")
+
 #Check if the game is over
 
 def check_game_over(red_board, blue_board):
@@ -251,7 +275,14 @@ def check_game_over(red_board, blue_board):
     return total_hits == total_ships
 
 #Game loop 
-
+print("Would you like to read the game rules? (Y/N)")
+read_rules = input().upper()
+if read_rules == 'Y':
+    display_rules()
+elif read_rules == 'N':
+    pass
+else: 
+    print("Invalid input. Starting game.")
 turns = 30 
 while turns > 0:
     print('Prepare for Battleships')
