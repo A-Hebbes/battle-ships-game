@@ -173,21 +173,6 @@ def get_target_location(board_size):
 
     return int(row) - 1, letters_to_numbers[column]
 
-def check_game_over(red_board, blue_board):
-    for row_index in range(len(red_board)):
-        for col_index in range(len(red_board[row_index])):
-            if red_board[row_index][col_index] == 'X' and blue_board[row_index][col_index] != 'X':
-                # There's a ship on RED_BOARD that hasn't been hit on BLUE_BOARD
-                print(f"Red ship at {row_index}, {col_index} hasn't been sunk yet!")
-                return False
-            elif red_board[row_index][col_index] != 'X' and blue_board[row_index][col_index] == 'X':
-                # There's a ship on BLUE_BOARD that hasn't been hit on RED_BOARD (shouldn't happen in a valid game)
-                print(f"Blue ship at {row_index}, {col_index} hasn't been hit yet!")
-                return False
-    print("All ships have been sunk!")
-    # If all 'X' marks on RED_BOARD match those on BLUE_BOARD, the game is over
-    return True
-
 
 """
 Set loaction of ships. NB There is a bug in this section, wrap in try except otherwise it wont work with no input
@@ -242,6 +227,13 @@ BLUE_BOARD = [[' '] * board_size for _ in range(board_size)]
 # Set ships on opponent board 
 create_ships(RED_BOARD, board_size, ship_sizes_for_game)
 
+#Check if the game is over
+
+def check_game_over(red_board, blue_board):
+    total_ships = sum(row.count('X') for row in red_board)
+    total_hits = sum(row.count('X') for row in blue_board)
+    return total_hits == total_ships
+
 #Game loop 
 
 turns = 30 
@@ -256,13 +248,13 @@ while turns > 0:
         print ('Congratulations You hit a battleship')
         BLUE_BOARD[row][column] = 'X'
         turns -= 1
-    if check_game_over(RED_BOARD, BLUE_BOARD):
-        print("Congratulations! You've sunk all of your opponent's battleships!")
-        break
+        if check_game_over(RED_BOARD, BLUE_BOARD):
+            print("Congratulations! You've sunk all of your opponent's battleships!")
+            break
     else: 
         print('You missed! :(')
         BLUE_BOARD[row][column] = '-'
-        turns -= 1
+    turns -= 1
     print('You have ' + str(turns) + ' turns remaining')
     if turns == 0:
         print('You Have No More Turns - Game Over')
