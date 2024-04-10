@@ -12,17 +12,20 @@ Issues to sort.
 
 """
 
-from random import randint
+#Imports 
+
+from random import randint, choice
+
+#Settings for difficulty and game boards
 
 letters_to_numbers = {'A' : 0, 'B' : 1, 'C' : 2, 'D' : 3, 'E' : 4, 'F' : 5, 'G' : 6, 'H' : 7, 'I' : 8, 'J' : 9}
-
-#Difficulty Level. Needs to be a variable accessible throughtout game so has to come early on in code. Check and see if this works later.
 ship_sizes = {
     'easy': [3, 3, 2, 2, 1, 1],  
     'hard': [1, 1, 1, 1, 1, 1] 
 }
 
-#Function to allow user to change size of board.
+#Functions for user choice of game type 
+
 def choose_board_size(): 
     print("Choose Board Size:")
     print("1. Small 5x5")
@@ -39,7 +42,6 @@ def choose_board_size():
         print ("Your Choice Wasn't Valid. Defauting to a small board.")
         return 5 
 
-#Function for difficulty selection 
 def choose_difficulty():
     print("Select Difficulty:")
     print("1. Easy (Ships occupy more squares)")
@@ -53,6 +55,23 @@ def choose_difficulty():
         print("Invalid choice. Defaulting to Easy.")
         return 'easy'
 
+#Function for Game Rules 
+def display_rules():
+    print("Welcome to Battleships!")
+    print("Rules:")
+    print("- You will be playing against the computer.")
+    print("- Your goal is to sink all of your opponent's battleships.")
+    print("- You will choose a location on the opponent's board to target.")
+    print("- If your shot hits a battleship, it will be marked with 'X'.")
+    print("- If your shot misses, it will be marked with '-'.")
+    print("- If you make a successful hit, you will activate a sonar to scan adjacent squares")
+    print("- The game ends when you sink all of your opponent's battleships or run out of turns.")
+    print("\nLet's get started!\n")
+
+#Board Creation and Display 
+#--------------------------
+
+#Function for board display
 
 def show_board(board, board_size):
     row_number = 1
@@ -65,17 +84,12 @@ def show_board(board, board_size):
     else:
         print ('   A B C D E')
         print ('   ---------')
-
-   
     for row in board: 
         print("%2d|%s|" % (row_number, "|".join(row)))
         row_number += 1
 
-"""
-Function to show board. Letter headings displayed for colmuns and number rows. The rows and columns are separated by pipe symbols
-"""
 
-from random import randint, choice
+#Functions for placement of ships and board initial setup
 
 def can_place_ship(board, row, col, ship_size, direction):
     if direction == 'horizontal':
@@ -112,11 +126,7 @@ def create_ships(board, board_size, ship_sizes):
                 placed = True
 
 
-
-"""
-EDITED FUNCTION TO TARGET ON VARIED SIZED BOARDS
-
-"""
+#Functions for game play
 
 def get_target_location(board_size):
     row = input(f'Enter a row number to target (1-{board_size}): ')
@@ -173,18 +183,7 @@ def sonar(board, row, col, board_size):
                 print(f"No ship detected at {r + 1}, {chr(c + 65)}")  
 
 
-#Function for Game Rules 
-def display_rules():
-    print("Welcome to Battleships!")
-    print("Rules:")
-    print("- You will be playing against the computer.")
-    print("- Your goal is to sink all of your opponent's battleships.")
-    print("- You will choose a location on the opponent's board to target.")
-    print("- If your shot hits a battleship, it will be marked with 'X'.")
-    print("- If your shot misses, it will be marked with '-'.")
-    print("- If you make a successful hit, you will activate a sonar to scan adjacent squares")
-    print("- The game ends when you sink all of your opponent's battleships or run out of turns.")
-    print("\nLet's get started!\n")
+
 
 #Check if the game is over
 
