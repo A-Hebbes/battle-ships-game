@@ -127,7 +127,9 @@ def create_ships(board, board_size, ship_sizes):
 
 
 #Functions for game play
+#-----------------------
 
+#Function to selct a target
 def get_target_location(board_size):
     row = input(f'Enter a row number to target (1-{board_size}): ')
     while not row.isdigit() or not 1 <= int(row) <= board_size:
@@ -137,34 +139,8 @@ def get_target_location(board_size):
     while len(column) != 1 or column < 'A' or column > chr(ord("A") + board_size - 1):
         print('Enter a valid column letter')
         column = input(f'Enter a column letter to target (A-{chr(ord("A") + board_size - 1)}): ').upper()
-
     return int(row) - 1, letters_to_numbers[column]
 
-"""
-display if strike was successful
-"""
-
-def sunk_ships(board):
-    count = 0 
-    for row in board:
-        for column in row:
-           if column == 'X':
-            count += 1
-    return count 
-
-board_size = choose_board_size()
-
-difficulty = choose_difficulty()
-
-ship_sizes_for_game = ship_sizes[difficulty]
-
-
-#create boards
-RED_BOARD = [[' '] * board_size for _ in range(board_size)]
-BLUE_BOARD = [[' '] * board_size for _ in range(board_size)]
-
-# Set ships on opponent board 
-create_ships(RED_BOARD, board_size, ship_sizes_for_game)
 
 #FUnction for sonar 
 
@@ -178,21 +154,42 @@ def sonar(board, row, col, board_size):
     for r in range(start_row, end_row + 1):
         for c in range(start_col, end_col + 1):
             if board[r][c] == 'X':
-                print(f"Ship detected at {r + 1}, {chr(c + 65)}")  
+                print(f"Ship detected at {r + 1}, {chr(c + 65)}")
             else:
-                print(f"No ship detected at {r + 1}, {chr(c + 65)}")  
+                print(f"No ship detected at {r + 1}, {chr(c + 65)}")
 
+#Functions for game progress check-ins
 
-
-
-#Check if the game is over
+def sunk_ships(board):
+    count = 0 
+    for row in board:
+        for column in row:
+           if column == 'X':
+            count += 1
+    return count 
 
 def check_game_over(red_board, blue_board):
     total_ships = sum(row.count('X') for row in red_board)
     total_hits = sum(row.count('X') for row in blue_board)
     return total_hits == total_ships
 
-#Game loop 
+#Game play
+#---------
+
+#Setup 
+
+board_size = choose_board_size()
+difficulty = choose_difficulty()
+ship_sizes_for_game = ship_sizes[difficulty]
+
+#Create boards
+RED_BOARD = [[' '] * board_size for _ in range(board_size)]
+BLUE_BOARD = [[' '] * board_size for _ in range(board_size)]
+
+# Set ships on opponent board 
+create_ships(RED_BOARD, board_size, ship_sizes_for_game)
+
+#Game Loop  
 print("Would you like to read the game rules? (Y/N)")
 read_rules = input().upper()
 if read_rules == 'Y':
