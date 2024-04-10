@@ -228,7 +228,7 @@ create_ships(RED_BOARD, board_size, ship_sizes_for_game)
 #FUnction for sonar 
 
 def sonar(board, row, col, board_size):
-    sonar_range = 2
+    sonar_range = 1
     start_row = max(0, row - sonar_range)
     end_row = min(board_size - 1, row + sonar_range)
     start_col = max(0, col - sonar_range)
@@ -241,6 +241,7 @@ def sonar(board, row, col, board_size):
             else:
                 print(f"No ship detected at {r + 1}, {chr(c + 65)}")  
 
+"""
 #Ask user if they want to see the rules 
 def start_game():
     while True:
@@ -253,6 +254,7 @@ def start_game():
             break
         else:
             print("Invalid input. Please enter Y or N.")
+"""
 
 #Function for Game Rules 
 def display_rules():
@@ -288,11 +290,16 @@ while turns > 0:
     print('Prepare for Battleships')
     #change back to BLUE_BOARD AFTER TESTING GAME
     show_board(RED_BOARD, board_size)
+    print("---------------")
     row, column = get_target_location(board_size)
     if BLUE_BOARD[row][column] == '-':
         print('Select another target location. You already aimed there')
+        print("---------------")
+        print("---------------")
     elif RED_BOARD[row][column] == 'X':
         print ('Congratulations You hit a battleship')
+        print("---------------")
+        print("---------------")
         BLUE_BOARD[row][column] = 'X'
         sonar(RED_BOARD, row, column, board_size)
         turns -= 1
@@ -301,6 +308,8 @@ while turns > 0:
             break
     else: 
         print('You missed! :(')
+        print("---------------")
+        print("---------------")
         BLUE_BOARD[row][column] = '-'
     turns -= 1
     print('You have ' + str(turns) + ' turns remaining')
