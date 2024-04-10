@@ -7,7 +7,7 @@
 """
 Issues to sort. 
 
-- Add space between text responses to make the game easier to use. 
+
 
 
 """
@@ -54,11 +54,6 @@ def choose_difficulty():
         return 'easy'
 
 
-#Global Variable for the opponent's hidden board
-#RED_BOARD = [[' '] * 10 for x in range(10)]
-#Global variable for the user's visible board to track their guesses
-#BLUE_BOARD = [[' '] * 10 for x in range(10)]
-
 def show_board(board, board_size):
     row_number = 1
     if board_size == 10:
@@ -72,8 +67,6 @@ def show_board(board, board_size):
         print ('   ---------')
 
    
-   # row_number = 1 was after code but have put before to see if it works. 
-
     for row in board: 
         print("%2d|%s|" % (row_number, "|".join(row)))
         row_number += 1
@@ -118,41 +111,7 @@ def create_ships(board, board_size, ship_sizes):
                 place_ship(board, row, col, ship_size, direction)
                 placed = True
 
-"""
 
-def create_ships(board, board_size, ship_sizes):
-    for ship_size in ship_sizes:
-        placed = False
-        while not placed: 
-            vertical = randint(0,1) == 0 
-            if vertical: 
-                row = randint(0, board_size, - ship_size)
-                col = randint(0, board_size - 1)
-                empty = all(board[row + i][col] == ' ' for i in range(ship_size))
-                if empty: 
-                    for i in range(ship_size):
-                        board[row + i][col] = 'X'
-                    placed = True
-            else:  
-                row = randint(0, board_size - 1)
-                col = randint(0, board_size - ship_size)
-                empty = all(board[row][col + i] == ' ' for i in range(ship_size))
-                if empty:
-                    for i in range(ship_size):
-                        board[row][col + i] = 'X'
-                    placed = True
-
-"""
-
-"""
-Code from previous function to set ships on the board. Keep in case new code doesn't work. Delete before I submit if it works!!
-    for ship in range(6):
-        ship_row, ship_column = randint(0, board_size - 1), randint(0, board_size - 1)
-        while board[ship_row][ship_column] == 'X':
-            ship_row, ship_column = randint(0, board_size - 1), randint(0, board_size - 1)
-        board[ship_row][ship_column] = 'X'
-
-"""
 
 """
 EDITED FUNCTION TO TARGET ON VARIED SIZED BOARDS
@@ -170,34 +129,6 @@ def get_target_location(board_size):
         column = input(f'Enter a column letter to target (A-{chr(ord("A") + board_size - 1)}): ').upper()
 
     return int(row) - 1, letters_to_numbers[column]
-
-
-"""
-Set loaction of ships. NB There is a bug in this section, wrap in try except otherwise it wont work with no input
-"""
-
-"""
-
-INITIAL FUNCTION FOR TARGETTING SHIPS --> LIMITED TO ONE BOARD SIZE. 
-def get_target_location():
-    row = input ('Enter a row number to target: ')
-    while row not in '12345678910':
-        print ('Enter a Valid Row')
-        row = input ('Enter a row number to target 1-10')
-    column = input ('Enter a column letter to target A-J').upper()
-    while column not in 'ABCDEFGHIJ':
-        print ('Enter a Valid Column')
-        column = input ('Enter a column letter to target A-J').upper()
-    return int(row) - 1, letters_to_numbers[column]
-
-
------
-
-function to ask player for the target
-"""
-
-def strike_success():
-    pass
 
 """
 display if strike was successful
@@ -241,20 +172,6 @@ def sonar(board, row, col, board_size):
             else:
                 print(f"No ship detected at {r + 1}, {chr(c + 65)}")  
 
-"""
-#Ask user if they want to see the rules 
-def start_game():
-    while True:
-        show_rules = input("Do you want to see the rules? (Y/N): ").upper()
-        if show_rules == 'Y':
-            display_rules()
-            break
-        elif show_rules == 'N':
-            print("Let's get started!\n")
-            break
-        else:
-            print("Invalid input. Please enter Y or N.")
-"""
 
 #Function for Game Rules 
 def display_rules():
