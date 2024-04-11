@@ -27,6 +27,11 @@ ship_sizes = {
 #Functions for user choice of game type 
 
 def choose_board_size(): 
+    print("Welcome to Battleships")
+    print("You will first select a board size and difficulty")
+    print("Then you will have the option to read the rules")
+    print("Good Luck Sailor")
+    print("^^^^^^^^^^^^^^^^")
     print("Choose Board Size:")
     print("1. Small 5x5")
     print("2. Medium 8x8")
