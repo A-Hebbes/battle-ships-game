@@ -48,6 +48,7 @@ def choose_board_size():
         return 5 
 
 def choose_difficulty():
+    print("^^^^^^^^^^^^^^^^^^")
     print("Select Difficulty:")
     print("1. Easy (Ships occupy more squares)")
     print("2. Hard (Ships occupy one square each)")
@@ -62,6 +63,7 @@ def choose_difficulty():
 
 #Function for Game Rules 
 def display_rules():
+    print("^^^^^^^^^^^^^^^^^^^^^^^")
     print("Welcome to Battleships!")
     print("Rules:")
     print("- You will be playing against the computer.")
@@ -194,7 +196,8 @@ BLUE_BOARD = [[' '] * board_size for _ in range(board_size)]
 # Set ships on opponent board 
 create_ships(RED_BOARD, board_size, ship_sizes_for_game)
 
-#Game Loop  
+#Game Loop
+print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
 print("Would you like to read the game rules? (Y/N)")
 read_rules = input().upper()
 if read_rules == 'Y':
@@ -205,6 +208,7 @@ else:
     print("Invalid input. Starting game.")
 turns = 30 
 while turns > 0:
+    print("^^^^^^^^^^^^^^^^^^^^^^^")
     print('Prepare for Battleships')
     #change back to BLUE_BOARD AFTER TESTING GAME
     show_board(RED_BOARD, board_size)
@@ -225,12 +229,13 @@ while turns > 0:
             print("Congratulations! You've sunk all of your opponent's battleships!")
             break
     else: 
-        print('You missed! :(')
+        print("You missed! :(")
         print("---------------")
         print("---------------")
         BLUE_BOARD[row][column] = '-'
     turns -= 1
-    print('You have ' + str(turns) + ' turns remaining')
+    print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+    print("You have " + str(turns) + " turns remaining")
     if turns == 0:
         print('You Have No More Turns - Game Over')
         break
