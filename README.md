@@ -111,14 +111,15 @@ The player wins if they hit all the opponents ships before the turns run out.
 
 - If they select to see the rules the rules are displayed after which the game begins. If they selcet to not see the rules the game begins. If they make an invalid selection the game begins. 
 
-
 **Game Play**
 
-![Instructions Modal](assets/images/spelling-game-contact.jpg)
+![Battleships Game Example](assets/images/battleships-game-example.jpg)
 
-- This modal is displayed when the contact us button is pressed on the home page.  
+- The user sees the board above. Hits are marked by an X and misses by a - . 
 
--  The user can indicate whether they are a teacher, student, or parent. This allows the responses to be used effectively. 
+_________________ EDITED TO HERE _______________
+
+![Battleships Game Example](assets/images/battleships-game-example.jpg)
 
 - There is a text area in which the user can fill out their comment. 
 

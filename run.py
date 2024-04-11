@@ -210,8 +210,7 @@ turns = 30
 while turns > 0:
     print("^^^^^^^^^^^^^^^^^^^^^^^")
     print('Prepare for Battleships')
-    #change back to BLUE_BOARD AFTER TESTING GAME
-    show_board(RED_BOARD, board_size)
+    show_board(BLUE_BOARD, board_size)
     print("---------------")
     row, column = get_target_location(board_size)
     if BLUE_BOARD[row][column] == '-':
@@ -219,6 +218,7 @@ while turns > 0:
         print("---------------")
         print("---------------")
     elif RED_BOARD[row][column] == 'X':
+        print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
         print ('Congratulations You hit a battleship')
         print("---------------")
         print("---------------")
@@ -228,7 +228,8 @@ while turns > 0:
         if check_game_over(RED_BOARD, BLUE_BOARD):
             print("Congratulations! You've sunk all of your opponent's battleships!")
             break
-    else: 
+    else:
+        print("^^^^^^^^^^^^^^^") 
         print("You missed! :(")
         print("---------------")
         print("---------------")
