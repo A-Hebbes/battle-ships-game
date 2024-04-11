@@ -57,17 +57,27 @@ The intention was to make a Battleships Game using python. This project is targe
 - [Credits](#credits)
     - [Acknowledgements](#acknowledgements)
 
+## How To Play 
+
+The user is playing against the computer, aiming to sink all the computer's battleships before the turns run out. 
+In this version, the computer is the only player with 'ships' the limited turns create the difficulty for the user. 
+When the player misses a shot this is indicated by a - symbol on the board they see. 
+When the player succesfully hits a ship this is marked by an X symbol. 
+To make the game a bit different to ones the player has played before there is a sonar function. 
+The sonar is triggered after a successful hit. It scans the adjacent squares and feedsback if there are any ships nearby. 
+The player wins if they hit all the opponents ships before the turns run out. 
+
 ## User Experience (UX)
 
 - ### User Stories
 
-1. As a user I want to test my use of their, there, or they're in a number of contexts. 
+1. As a user I want to play a game which uses some strategy.  
     
-2. As a user I want to have support with the spellings of the target words so that I can see the words to embed the spelling, whilst practising the use of the words in context. 
-     
-3. As a user I want to know how well I did on the game. 
+2. As a user I want to be able to select the difficulty and size of the game. 
+
+3. As a user I want to know if I won or lost when the game is over.  
     
-4. As a user I want to know how I am doing without looking at the score counter after each question. 
+4. As a user I want to know how many turns I have left as I play the game. 
     
 
 ## Features 
@@ -76,38 +86,33 @@ The intention was to make a Battleships Game using python. This project is targe
 
 **Pregame Options**
 
-![Spelling Game Landing](assets/images/spelling-game-landing.jpg)
+![Battleships Welcome](assets/images/battleships-welcome.jpg)
 
-- The user is first 
+- The user is welcomed to the game and given initial guidance on what will come. 
 
-- The heading is clearly displayed at the top and introduces the nature of the quiz that is to follow.
+- The user is told that they will first select a board size and difficulty level before having the option to view the rules. 
 
-- Below the heading further information is given on the purpose of the site. 
+**Initial Game Type Selections**
 
+![Board Size](assets/images/battleships-board-size.jpg)
 
-**Navigation Buttons**
+- The user has the choice of three board sizes which helps them to have a game which suits their skill and level and time availability. 
 
-![Navigation Buttons](assets/images/spelling-game-buttons.jpg)
+![Difficulty Selection](assets/images/battleships-difficulty.jpg)
 
-
-- The buttons on the landing page allow the user to easily navigate the site. 
-
-- The 'Play' button is at the top as this is the most important button for site use. This button directs the user to the game page. This is followed by the 'How to Play' button, this brings up a modal which gives a reminder of the knoweldge required and instructions on how to play. The final button is a 'Contact Us' button, which brings up a modal with a form which the user can fill in to provide feedback. 
+- The user is then prompted to select a difficulty level. They are also given guidance on what the difficulty means. 
 
 
-**How To Play Modal**
+**Rules Option**
 
-![Instructions Modal](assets/images/spelling-game-instructions.jpg)
+![Rules Option](assets/images/battleships-rules.jpg)
 
-- The 'How To Play' modal gives a clear list of instructions on how to play the game. 
+- The user is given the option to read the rules of the game
 
-- There is a 'Refresh Your Understanding' section below the instructions which gives the user a quick recap of the skill to be used. 
-
-- The 'X' in the top right corner of the modal hides the modal again and the user can see the landing page and press play to begin the game.
+- If they select to see the rules the rules are displayed after which the game begins. If they selcet to not see the rules the game begins. If they make an invalid selection the game begins. 
 
 
-
-**Contact Us Modal**
+**Game Play**
 
 ![Instructions Modal](assets/images/spelling-game-contact.jpg)
 
