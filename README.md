@@ -156,84 +156,41 @@ The player wins if they hit all the opponents ships before the turns run out.
 
 - At the bottom of the page is a 'Return Home' link which directs the user back to the home page. 
 
-**Game End Modal**
-
-![Game End Modal](assets/images/spelling-game-end.jpg)
-
-- The 'Game End Modal' is displayed once the final question has been answered. 
-
-- The user sees their final score and gets feedback based on their score. 
-
-- There is a return home button at the bottom of the modal. The text is a darker colour than the rest of the modal to draw attention of the user. 
-
 
 ### Features left to implement 
 
-- The site could be developed to include more quizzes and have more emphasis on teaching. 
+- The game could be developed further to have a the computer take shots against the player. 
 
-- There could also be different sections of the site based upon the user's attainment level. 
+- Giving the player a visible board and the option to place their own ships would also be a future feature of benefit.  
 
-- Another useful feature would be a top scores section, or a way for a user's top score to be saved so that they can try to beat their previous attempts. 
 
 ## Technologies Used
 ### Languages
 
-- HTML
-- CSS
-- JavaScript
+- Python
 
 ### Programmes Used
 
-- Balsamiq
-    -For Wireframes
-- Git 
-    - Used for version control
 - Github
     - Used to store the repository for the project.
 - Gitpod
-    - The IDE used when coding the website. 
-- Chrome Developer Tool
-    - Used to check responsivity and to troubleshoot issues
+    - The IDE used when coding the game. 
 - Am I Responsive
     - This site was used to check the responsiveness of the site (https://ui.dev/amiresponsive)
-- Goodle Fonts
-    - The fonts for the site were taken from Google Fonts
+- Online IDE
+    - I used this during testing to run the game and see if any issues showed (https://www.online-ide.com/)
 
 
 ## Testing
 
-The code was validated through the W3C HTML Validator, W3C CSS Validator, and JSHint. These were used to ensure that syntax errors or omissions were rectified prior to submission.
- - (https://validator.w3.org/)
- - (https://jigsaw.w3.org/css-validator/)
- - (https://jshint.com/)
+The code was run through a PEP8 Linter which did not flag any issues. 
 
+I used invalid inputs while playing the game through to check that this did not create any unexpected issues. 
 
-HTML Validation
- - The HTML passed the validator with no issues. 
+The game was tested in my local terminal and on an Online IDE website (https://www.online-ide.com/)
 
- CSS Validation
- - The CSS validator highlighted a couple of issues in relation to syntax, for example an extra bracket was included and needed removing. Following these changes the CSS passed the validator. 
+------ EDITED TO HERE _______
 
-JS HINT 
-- JSHint highlighted a number of missing semi-colons and also a string that was being read as a variable because it did not have inverted commas around it. With these fixes made the JavaScript passed the validator. 
-
-### Lighthouse 
-
-The first lighthouse test came back with the following scores. 
-
-![First Lighthouse Test Results](assets/images/spelling-game-lighthouse-1.png) 
-
-Accessibility was improved by a changing of colours on the site to improve readability. The pink question boxes on the game page were made a darker shade and the text on question box and answer buttons was made into a brighter yellow. This provided better contrast and so improved readability. 
-
-![Lighthouse Readability Issue](assets/images/spelling-game-colours.png) 
-
-There was also an issue with the home button, which was a font-awesome home icon. Lighthouse flagged this as an issue in relation to aria-hidden. I tried a few fixes suggested online, for example placing hidden text so that a screen reader could still read the text and the icon could remain as the only visible feature of the button. These still did not improve the issue, so I replaced the icon with text. I will have to do some more work to figure out this problem and why it occured. 
-
-![Lighthouse Aria Hidden Issue](assets/images/spelling-game-house.jpg) 
-
-### Devices 
-- The site was tested on both **Chrome** and **Safari**
-- Devices used were iPhone SE, MacBook Air and iPad. 
 
 ### Testing User Stories
 
