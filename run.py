@@ -237,7 +237,7 @@ while turns > 0:
     turns -= 1
     print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
     print("You have " + str(turns) + " turns remaining")
-    if turns == 0:
+    if turns <= 0:
         print('You Have No More Turns - Game Over')
         break
 
