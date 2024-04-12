@@ -117,13 +117,22 @@ The player wins if they hit all the opponents ships before the turns run out.
 
 - The user sees the board above. Hits are marked by an X and misses by a - . 
 
-_________________ EDITED TO HERE _______________
 
-![Battleships Game Example](assets/images/battleships-game-example.jpg)
+![Battleships Successful Hit](assets/images/battleships-hit-success.jpg)
 
-- There is a text area in which the user can fill out their comment. 
+- When the user makes a successful hit a congratulations message is diplayed. 
 
--There is no space for contact information of the user to be provided. This was a decision made based on safeguarding principles. As the site's main users are likely to be children, it would be inappropriate to request contact information.
+- Below this the sonar results are shown. 
+
+- The number of remaining turns is displayed and the game board is updated for the next turn. 
+
+![Battleships Miss](assets/images/battleships-miss.jpg)
+
+- When the player misses, a message is displayed to indicate this. 
+
+-The remianing turns are displayed. 
+
+- The board is updated with a - symbol and the game is ready for the next turn. 
 
 **Game Page**
 
