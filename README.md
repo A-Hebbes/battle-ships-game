@@ -134,6 +134,14 @@ The player wins if they hit all the opponents ships before the turns run out.
 
 - The board is updated with a - symbol and the game is ready for the next turn. 
 
+![Battleships Invalid Inputs](assets/images/battleships-invalid.jpg)
+
+- At various points in the game the user is required to make inputs. When an invalid input is made the game indicates this to the user. 
+
+- If an invalid input is made during the game, a message is displayed which prompts the user to make a valid input. 
+
+- If the invalid input occurs outside of gameplay then a message is displayed that the input was incorrect and the game defaults to beginning the game e.g. At board selection, if an invalid input is made, the message is displayed that the input was invalid and that the board size will default to a small board and the game begins. 
+
 **Game Page**
 
 ![Spelling Game Quiz Page](assets/images/spelling-game-quiz.jpg)

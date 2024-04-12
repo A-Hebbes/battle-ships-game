@@ -43,8 +43,10 @@ def choose_board_size():
         return 8
     elif choice == '3':
         return 10
-    else: 
+    else:
+        print("------------------------------------------------------") 
         print ("Your Choice Wasn't Valid. Defauting to a small board.")
+        print("------------------------------------------------------") 
         return 5 
 
 def choose_difficulty():
@@ -140,11 +142,15 @@ def create_ships(board, board_size, ship_sizes):
 def get_target_location(board_size):
     row = input(f'Enter a row number to target (1-{board_size}): ')
     while not row.isdigit() or not 1 <= int(row) <= board_size:
-        print('Enter a valid row number')
+        print("------------------------")
+        print("Enter a valid row number")
+        print("------------------------")
         row = input(f'Enter a row number to target (1-{board_size}): ')
     column = input(f'Enter a column letter to target (A-{chr(ord("A") + board_size - 1)}): ').upper()
     while len(column) != 1 or column < 'A' or column > chr(ord("A") + board_size - 1):
-        print('Enter a valid column letter')
+        print("---------------------------")
+        print("Enter a valid column letter")
+        print("---------------------------")
         column = input(f'Enter a column letter to target (A-{chr(ord("A") + board_size - 1)}): ').upper()
     return int(row) - 1, letters_to_numbers[column]
 
@@ -204,8 +210,10 @@ if read_rules == 'Y':
     display_rules()
 elif read_rules == 'N':
     pass
-else: 
+else:
+    print("-----------------------------") 
     print("Invalid input. Starting game.")
+    print("-----------------------------")
 turns = 30 
 while turns > 0:
     print("^^^^^^^^^^^^^^^^^^^^^^^")
@@ -227,6 +235,7 @@ while turns > 0:
         turns -= 1
         if check_game_over(RED_BOARD, BLUE_BOARD):
             print("Congratulations! You've sunk all of your opponent's battleships!")
+            print("Thankyou for playing.")
             break
     else:
         print("^^^^^^^^^^^^^^^") 
@@ -239,6 +248,7 @@ while turns > 0:
     print("You have " + str(turns) + " turns remaining")
     if turns <= 0:
         print('You Have No More Turns - Game Over')
+        print('Thank you for playing battleships. Better Luck Next Time. Gooodbye.')
         break
 
 
