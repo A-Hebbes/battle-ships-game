@@ -69,7 +69,7 @@ The player wins if they hit all the opponents ships before the turns run out.
 
 ## User Experience (UX)
 
-- ### User Stories
+### User Stories
 
 1. As a user I want to play a game which uses some strategy.  
     
@@ -194,17 +194,18 @@ The game was tested in my local terminal and on an Online IDE website (https://w
 
 ### Testing User Stories
 
-1. As a user I want to test my use of their, there, or they're in a number of contexts. 
-    - There are ten questions, each is a sentence with one word missing. The questions are a mixture of direct speech, and declarative statments. 
+1. As a user I want to play a game which uses some strategy.  
+    - The game allows the player to use some strategy when playing, this is enhanced by the sonar function which allows the player to rely on more than just luck when playing on harder levels.  
 
-2. As a user I want to have support with the spellings of the target words so that I can see the words to embed the spelling, whilst practising the use of the words in context. 
-    - There are three button options and the target words are displayed throughout. 
+2. As a user I want to be able to select the difficulty and size of the game. 
+    - The user is offered options of board size and difficulty level at the beginning of the game.  
 
-3. As a user I want to know how well I did on the game. 
-    - There is a score counter at the top of the game page which updates as the game is played. There is also a final score displayed on the game end modal. 
+3. As a user I want to know if I won or lost when the game is over.
+    - The end of the game features a message to indicate either a win or a loss. 
 
-4. As a user I want to know how I am doing without looking at the score counter after each question. 
-    - There is a green tick or red cross displayed after each answer guess, dependant upon the user's success with the question. 
+4. As a user I want to know how many turns I have left as I play the game. 
+    - After each turn the number of remaining turns is displayed. 
+
 
 ### Fixed Bugs
 
