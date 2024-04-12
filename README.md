@@ -209,21 +209,11 @@ The game was tested in my local terminal and on an Online IDE website (https://w
 
 ### Fixed Bugs
 
-- There was an error displaying in the console when the page was loaded. To rectify this I added an event listener to allow the DOM content to load prior to the running of the rest of the JavaScript. 
+- There was an issue with the check game end function. It was caused by an indentation error. Once the indentation was fixed the bug was resolved. 
 
-- There was an issue with the contact modal screen on modal devices, the page overflowed to the left of the screen but could not be accessed. Initially I was unsure what was causing the issue, but found it to be the textarea in the end. To fix this I changed the box-sizing in the media query, and this resolved the issue. 
+- At game end there was an issue that the player wasn't informed that the game was over. This was because the if statement for game end was reliant on the turns being equal to zero. I changed this to be less than or equal to zero and this fixed the issue and displayed the game end message.  
 
-### Functionality
 
-- All buttons were tested and are accessible. 
-- All buttons have been tested to ensure they react as expected when hovered over. 
-- The game works as intended. 
-- All modals work as intended and when teh user exits them, they return to the home page view as expected. 
-
-### Future Features
-
-- The inclusion of a progress bar, could be a good feature in the future. 
-- Additional quizzes which test different skills would also enhance the site. 
 
 ## Deployment 
 
