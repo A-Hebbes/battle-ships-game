@@ -1,37 +1,3 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome Alex Hebbes,
-
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
-
-## Reminders
-
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
-
-
-
 # Battleships Game 
 
 The intention was to make a Battleships Game using python. This project is targetted at someone looking to play a strategy game. The aim of the game is to allow the user to play a familiar game with the addition of a new feature, the sonar, which will help them to complete the game on harder levels or if they are new to the game. There is also a contact form on the website in case users have any comments for improvements which could be made. The user will have options to decide what side board they play on and what level of difficulty they desire.
@@ -187,9 +153,7 @@ The code was run through a PEP8 Linter which did not flag any issues.
 
 I used invalid inputs while playing the game through to check that this did not create any unexpected issues. 
 
-The game was tested in my local terminal and on an Online IDE website (https://www.online-ide.com/)
-
------- EDITED TO HERE _______
+The game was tested in my local terminal and on an Online IDE website (https://www.online-ide.com/) and on the deployed version of the game at (https://battle-ships-game.onrender.com/)
 
 
 ### Testing User Stories
@@ -217,57 +181,39 @@ The game was tested in my local terminal and on an Online IDE website (https://w
 
 ## Deployment 
 
-- The project was deployed to Github Pages and used the following steps: 
+- The project was deployed to On Render the steps to deploy are as below: 
 
-1. Sign in to GitHub and access the [repository](https://github.com/A-Hebbes/spelling-game)
-2. Go to settings which can be found towards the top of the repository page. 
-3. Once in settings, scroll down to Github Pages.
-4. Select the source as main. 
-5. Now click save and refresh the page. 
+1. Sign in to GitHub and access the [repository](https://github.com/A-Hebbes/battle-ships-game)
+2. Clone or fork the repository 
+3. Navigate to Render.com (https://render.com/)
+4. Click new and then select web service 
+5. Search the forked/cloned repo and click connect
+6. Apply the relevant settings and environment variables
+7. Select Auto-deploy
+8. The site will now be deployed
 
 
 ## Credits 
 
-Code help and advice came from many sources. 
 
-**Ollie Grubb**
+**Knowledge Mavens Youtube**
 
-Ollie has helped build my understanding of a variety of areas in relation to this project. He has helped in particular with the bug-fixing process. His guidance helped me to use the Dev Tools more effectively. His assistance has also been credited in the code. 
+I used a video to guide me through an initial build of a simple game of battleships. Using this guidance, I developed the game further to ensure that the game was my own work. The video I used can be found at the following link. (https://www.youtube.com/watch?v=tF1WRCrd_HQ) 
  
 
-**Video Guides**
+**Chat GPT**
 
-- Modals 
-The use of modals was totally new to me and so the following video proved a useful introduction to their use(https://www.youtube.com/watch?v=KjQ8uvAt9kQ)
+- I used ChatGPT to help guide me in the process. At various stages, I used the site to help add detail and explanation to error messages. I also used the site to help develop my knowledge of the programming possibilities, for example ChatGPT helped to explain Python's formatted string literals (f-strings). I used this knowledge to help display accurate information to the user of ship positions in the sonar. 
 
-- General structure and approach 
-The following video was a useful scaffold in the early stages of the project. It helped outline some key principles and gave inspiration for structure (https://www.youtube.com/watch?v=f4fB9Xg2JEY)
+**Mentor**
 
+My mentor Simen Daehlin provided useful guidance on seeking support from Conde Institute. This project coincided with a period of considerable personal hardship. Simen advised me to seek extra time for the project which was vital for project completion and my own well-being. 
 
-**Educational Sites and Fora**
+**Code Institute**
 
-Listed below are more sites that I used to gain understanding of issues I was having or insights into best practice. 
+A number of staff at Code Institute have helped in the complettion of this project. 
 
-(https://coolors.co/)
+- Student Support were instrumental in facilitating the extra time I needed for this project. 
 
-(https://www.labnol.org/beautifier/)
+- Tutor support helped with deployment. I was unable to access Heroku and it looked like I would not be able to submit, but tutor support gave me the guidanc to use the Render website instead, which has worked for deployment. 
 
-(https://www.thoughtco.com/)
-
-(https://stackoverflow.com/)
-
-(https://www.w3schools.com/)
-
-(https://forum.freecodecamp.org/)
-
-(https://nekocalc.com/px-to-rem-converter)
-
-(https://webflow.com/blog/fonts-for-web-design)
-
-
-
-### Content
-
-  
-- Font Awesome (https://fontawesome.com/)
-- Google Fonts (https://fonts.google.com/)

@@ -235,7 +235,8 @@ while turns > 0:
         turns -= 1
         if check_game_over(RED_BOARD, BLUE_BOARD):
             print("Congratulations! You've sunk all of your opponent's battleships!")
-            print("Thankyou for playing.")
+            print("Thankyou for playing. Goodbye.")
+            print('If you would like to play again click the "Run Program" button at the top of the page.')
             break
     else:
         print("^^^^^^^^^^^^^^^") 
@@ -249,6 +250,7 @@ while turns > 0:
     if turns <= 0:
         print('You Have No More Turns - Game Over')
         print('Thank you for playing battleships. Better Luck Next Time. Gooodbye.')
+        print('If you would like to play again click the "Run Program" button at the top of the page.')
         break
 
 
