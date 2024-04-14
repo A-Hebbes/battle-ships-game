@@ -135,7 +135,7 @@ The player wins if they hit all the opponents ships before the turns run out.
 
 ## Testing
 
-The code was run through a PEP8 Linter which did not flag any issues. 
+The code was run through a PEP8 Linter (https://pep8ci.herokuapp.com) which showed some issues with line lengths, whitespace, and not having enough lines separating some part sof the code. Once these issues had been resolved there were no issues found with the code. 
 
 I used invalid inputs while playing the game through to check that this did not create any unexpected issues. 
 
@@ -202,4 +202,3 @@ A number of staff at Code Institute have helped in the complettion of this proje
 - Student Support were instrumental in facilitating the extra time I needed for this project. 
 
 - Tutor support helped with deployment. I was unable to access Heroku and it looked like I would not be able to submit, but tutor support gave me the guidanc to use the Render website instead, which has worked for deployment. 
-
