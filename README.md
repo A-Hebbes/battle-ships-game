@@ -2,7 +2,6 @@
 
 The intention was to make a Battleships Game using python. This project is targetted at someone looking to play a strategy game. The aim of the game is to allow the user to play a familiar game with the addition of a new feature, the sonar, which will help them to complete the game on harder levels or if they are new to the game. There is also a contact form on the website in case users have any comments for improvements which could be made. The user will have options to decide what side board they play on and what level of difficulty they desire.
 
-![Spelling Game Responsive Layout](assets/images/spelling-game-responsive.jpg)
 
 ## Contents
 - [How To Play](#how-to-play)
@@ -15,13 +14,14 @@ The intention was to make a Battleships Game using python. This project is targe
     - [Languages](#languages)
     - [Programmes Used](#programmes-used)
 - [Testing](#testing)
-    - [PEP8 Linter](#pep8-linter)
-    - [Invalid Inputs](#invalid-inputs)
-    - [Terminal Testing](#terminal-testing)
-    - [Fixed Bugs](#fixed-bugs)  
+    - PEP8 Linter
+    - Invalid Inputs
+    - Terminal Testing
+    - Fixed Bugs
+    - Testing User Stories
 - [Deployment](#deployment)
 - [Credits](#credits)
-    - [Acknowledgements](#acknowledgements)
+
 
 ## How To Play 
 
@@ -108,22 +108,8 @@ The player wins if they hit all the opponents ships before the turns run out.
 
 - If the invalid input occurs outside of gameplay then a message is displayed that the input was incorrect and the game defaults to beginning the game e.g. At board selection, if an invalid input is made, the message is displayed that the input was invalid and that the board size will default to a small board and the game begins. 
 
-**Game Page**
 
-![Spelling Game Quiz Page](assets/images/spelling-game-quiz.jpg)
-
--The game page continues the colour theme from the home page and is laid out simply so that younger users are able to intuitively use the page. 
-
--The score at the top updates when a question is answered correctly. 
-
-- The question updates each time an answer button is clicked. 
-
-- The three answer buttons are laid out below the question and when clicked, will update the score if necessary. Also, the user will see either a tick or cross displayed after they click a button dependent on their success with the question. 
-
-- At the bottom of the page is a 'Return Home' link which directs the user back to the home page. 
-
-
-### Features left to implement 
+### Future Features 
 
 - The game could be developed further to have a the computer take shots against the player. 
 
@@ -141,10 +127,10 @@ The player wins if they hit all the opponents ships before the turns run out.
     - Used to store the repository for the project.
 - Gitpod
     - The IDE used when coding the game. 
-- Am I Responsive
-    - This site was used to check the responsiveness of the site (https://ui.dev/amiresponsive)
 - Online IDE
     - I used this during testing to run the game and see if any issues showed (https://www.online-ide.com/)
+- Render.com 
+    - This site was used for deployment (https://render.com/)
 
 
 ## Testing
